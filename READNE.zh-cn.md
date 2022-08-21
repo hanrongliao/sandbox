@@ -1,21 +1,21 @@
 # sandbox
 
-A simply sandbox for run javascript code securely. 
+一个简单的运行Javascript字符串的沙箱
 
-## method
+## 方法
 
 ```javascript
 /**
- * @param {String} code - The javascript code string that need to execude.
- * @param {Object} data - The variables that can be accessed during code execution.
- * @return {*} - any return in your code logic
+ * @param {String} code - 需要执行的javascript代码字符串
+ * @param {Object} data - 沙箱里可访问的变量对象
+ * @return {*} - 根据代码逻辑可以返回任意类型的值
  * */
 sandbox(code, [, data])
 ```
 
-## Usage
+## 使用
 
-#### example 1
+#### 示例 1
 
 ```javascript
 import sandbox from './sandbox'
@@ -26,14 +26,14 @@ const code = `return 1 + 1`
 console.log(sandbox(code))
 ```
 
-#### example 2
+#### 示例 2
 
 Process data returned from the interface。
 
 ```javascript
 import sandbox from './sandbox'
 
-// get from interface
+// 从接口返回的数据
 const data = [1, 2, 3]
 
 const code = `return data.map(item => item * 2)`
@@ -42,10 +42,10 @@ const code = `return data.map(item => item * 2)`
 console.log(sandbox(code), { data })
 ```
 
-You can read the passing data when the code is executed。
+你可以在沙箱中读取到你传递的数据data。
 
-## Tip
-You can also set whitelist variables in the sandbox, for example:
+## 提示
+你也可以设置沙箱里可以访问的白名单变量，例如：
 
 ```javascript
 import sandbox from './sandbox'
